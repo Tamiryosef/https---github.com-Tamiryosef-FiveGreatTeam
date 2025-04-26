@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Five Great Team - ההגנה שלך מפני חנק</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Heebo', sans-serif;
+      background-color: #0c1c2c;
+      color: #fff;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    video.background-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin-left: 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 40px;
+      max-width: 600px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 0 0 20px 0;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .buttons a {
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .buy-btn {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .info-btn {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .hero-section {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .hero-image {
+      max-width: 400px;
+      margin: 20px;
+    }
+
+    .bottom-text {
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 30px 0;
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+      .hero-section {
+        flex-direction: column;
+      }
+      .hero {
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* סגנון המודאל */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      color: #000;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    .close {
+      color: #aaa;
+      float: left;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+<!-- חלון וידאו צדדי -->
+<div style="position: fixed; bottom: 20px; left: 20px; width: 360px; height: 202px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border-radius: 12px; overflow: hidden; z-index: 999; background: black;">
+  <video width="100%" height="100%" controls>
+    <source src="tamir_v.mp4" type="video/mp4">
+    הדפדפן שלך לא תומך בניגון וידאו.
+  </video>
+</div>
+
+<header>
+  <div class="logo">Five Great Team</div>
+  <nav>
+    <a id="about-product-btn">על המוצר</a>
+    <a id="user-guide-btn">מדריך למשתמש</a>
+    <a href="#">מידע שימושי</a>
+  </nav>
+</header>
+
+<section class="hero-section">
+  <div class="hero">
+    <h1>ההגנה שלך מפני חנק</h1>
+    <p>מכשיר חדשני וראשוני וקל לשימוש<br>להצלת חיי אדם ממצבי חנק</p>
+    <div class="buttons">
+      <a href="#" class="buy-btn">קנה עכשיו</a>
+      <a href="#" class="info-btn">למד עוד</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="ChatGPT Image Apr 23, 2025, 06_16_18 PM.png" alt="Five Great Team Product" style="max-width: 100%; border-radius: 8px;">
+  </div>
+</section>
+
+<div class="bottom-text">
+  לפעולה נוחה ומהירה
+</div>
+
+<!-- מודאל - חלון על המוצר -->
+<div id="product-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-modal">&times;</span>
+    <h2>🛡️ Five Great Team – מכשיר ההצלה מחנק</h2>
+    <p>כי כל שנייה חשובה. כל נשימה יכולה להציל חיים.</p>
+    <p>✅ פתרון חכם להצלת חיים – לכל אחד, בכל מקום<br>חנק הוא אחד הגורמים המרכזיים לתמותה מתאונות – בבית, בגנים, במסעדות ואפילו בעבודה.<br>Five Great Team הוא מכשיר פורץ דרך להצלת חיים בעת חנק – קל לתפעול, יעיל, ולא דורש הכשרה רפואית.</p>
+    <h3>⚙️ יתרונות המכשיר:</h3>
+    <ul>
+      <li>טכנולוגיה מתקדמת – יוצר ואקום מדויק להסרת גוף זר מהגרון תוך שניות.</li>
+      <li>קל ונייד – מתאים לכל תיק, מגירה או ארון עזרה ראשונה.</li>
+      <li>תפעול פשוט – שלב אחד, משיכה אחת – מצילים חיים.</li>
+      <li>מיועד לכולם – ילדים, מבוגרים וקשישים.</li>
+      <li>מאושר ונבדק – עומד בתווי תקן מחמירים, ונמצא בשימוש ע"י צוותים רפואיים ואנשי חינוך.</li>
+    </ul>
+    <h3>🎯 למי זה מתאים?</h3>
+    <ul>
+      <li>הורים ומשפחות</li>
+      <li>גנים, בתי ספר ומטפלות</li>
+      <li>מסעדות, בתי קפה ושירותי קייטרינג</li>
+      <li>מוסדות לקשישים וסיעוד</li>
+      <li>מקומות עבודה, קניונים ומרכזים ציבוריים</li>
+    </ul>
+    <h3>💬 לקוחות ממליצים:</h3>
+    <p>"המכשיר הציל את הילדה שלי בארוחת ערב. אני לא רוצה לדמיין מה היה קורה בלעדיו." – רוני, אמא לשלושה</p>
+    <p>"יש לנו מכשיר כזה בכל כיתה – זה פשוט חובה." – עדי, מנהלת גן ילדים</p>
+    <h3>🚨 היו מוכנים. היו גיבורים. הצילו חיים.</h3>
+    <p>רכשו עכשיו את Five Great Team – מכשיר ההצלה מחנק ושימו את הביטחון בידיים שלכם.</p>
+    <p>📦 [הזמינו עכשיו] 📞 [צור קשר לייעוץ]</p>
+  </div>
+</div>
+
+<!-- מודאל - מדריך למשתמש -->
+<div id="user-guide-modal" class="modal">
+  <div class="modal-content" style="text-align: center;">
+    <span class="close" id="close-video-modal">&times;</span>
+    <video id="user-guide-video" width="100%" height="auto" controls>
+      <source src="ceb397bf-4433-4d8f-83a4-6b8619e6d422.mp4" type="video/mp4">
+      הדפדפן שלך לא תומך בניגון וידאו.
+    </video>
+  </div>
+</div>
+
+<script>
+  // פתיחה וסגירה של המודאל
+  const modal = document.getElementById("product-modal");
+  const openBtn = document.getElementById("about-product-btn");
+  const closeBtn = document.getElementById("close-modal");
+
+  openBtn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // מדריך למשתמש - פתיחה וסגירה
+const userGuideModal = document.getElementById("user-guide-modal");
+const userGuideBtn = document.getElementById("user-guide-btn");
+const closeVideoModal = document.getElementById("close-video-modal");
+const userGuideVideo = document.getElementById("user-guide-video");
+
+userGuideBtn.onclick = function () {
+  userGuideModal.style.display = "block";
+  userGuideVideo.play();
+}
+
+closeVideoModal.onclick = function () {
+  userGuideModal.style.display = "none";
+  userGuideVideo.pause();
+  userGuideVideo.currentTime = 0;
+}
+
+window.onclick = function (event) {
+  if (event.target == userGuideModal) {
+    userGuideModal.style.display = "none";
+    userGuideVideo.pause();
+    userGuideVideo.currentTime = 0;
+  } else if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+</script>
+
+</body>
+</html>
