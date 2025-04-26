@@ -180,7 +180,7 @@
   <nav>
     <a id="about-product-btn">על המוצר</a>
     <a id="user-guide-btn">מדריך למשתמש</a>
-    <a id="user-info-btn">מידע נוסף</a>
+    <a id="user-info-btn">אישורים רפואיים ותווי תקן</a>
   </nav>
 </header>
 
@@ -190,7 +190,7 @@
     <p>מכשיר חדשני וראשוני וקל לשימוש<br>להצלת חיי אדם ממצבי חנק</p>
     <div class="buttons">
       <a href="#" class="buy-btn">קנה עכשיו</a>
-      <a href="#" class="info-btn">למד עוד</a>
+      <a href="#" class="info-btn" id="learn-more-btn">למד עוד</a>
     </div>
   </div>
   <div class="hero-image">
@@ -245,7 +245,89 @@
   </div>
 </div>
 
+<!-- מודאל - מידע נוסף על אישורים -->
+<div id="user-info-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-user-info-modal">&times;</span>
+    <h2>📜 אישורים ותווי תקן</h2>
+    <ul>
+      <li>✅ אישור ה-FDA האמריקאי מס' 4587-FDA/US-2025</li>
+      <li>✅ תקן אירופי CE ברמת Class IIa מס' CE-2145-2025</li>
+      <li>✅ רישוי משרד הבריאות בישראל מס' IL-MOH-7782-2025</li>
+      <li>✅ עמידה בדרישות תקן ISO 13485 לניהול איכות במכשור רפואי</li>
+      <li>✅ בדיקות בטיחות מחמירות במעבדת BiomedSafe אירופה</li>
+    </ul>
+    <p style="margin-top:20px;">המוצר נבדק ואושר לשימוש בסביבות חינוך, רפואה וקהילה.</p>
+    <p><strong>הבהרה:</strong> המידע בדף זה נועד להמחשה בלבד ואינו מייצג מסמכים רשמיים.</p>
+  </div>
+</div>
+
+<!-- מודאל רכישה -->
+<div id="purchase-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-purchase-modal">&times;</span>
+    <h2>🛒 הזמנת המכשיר Five Great Team</h2>
+    <p>מחיר: 600 ש"ח</p>
+    <form class="purchase-form">
+      <input type="text" placeholder="שם מלא" required>
+      <input type="tel" placeholder="מספר טלפון" required>
+      <input type="email" placeholder="אימייל" required>
+      <input type="text" id="credit-card" placeholder="מספר כרטיס אשראי" required readonly>
+      <button type="submit">בצע רכישה</button>
+    </form>
+  </div>
+</div>
+
+<!--למד עוד-->
+<div id="product-modal" class="modal" style="display:none;">
+  <div class="modal-content" style="direction: rtl; text-align: right;">
+    <span id="close-modal" style="float:left; font-size:28px; cursor:pointer;">&times;</span>
+    <h2>מכשיר Five Great Team - להצלת חיים ברגעים הקריטיים!</h2>
+    <p>🛡️ מכשיר חדשני נגד חנק המיועד להצלת חיים במהירות וביעילות.</p>
+    <ul>
+      <li>🔹 מתאים לילדים ולמבוגרים כאחד</li>
+      <li>🔹 נייד, קל משקל ונוח לנשיאה בכל תיק</li>
+      <li>🔹 הפעלה פשוטה ומהירה — גם במצבי חירום מלחיצים</li>
+      <li>🔹 עיצוב ארגונומי לנוחות שימוש מקסימלית</li>
+      <li>🔹 פתרון בטיחותי חיוני לכל בית, גן ילדים, מוסד ציבורי, ומטיילים</li>
+    </ul>
+    <h3>מה כלול בערכה:</h3>
+    <ul>
+      <li>מכשיר Five Great Team נגד חנק</li>
+      <li>תיק אחסון איכותי</li>
+      <li>מדריך שימוש מהיר</li>
+    </ul>
+    <p>🛡️ אחריות מלאה ל-12 חודשים!</p>
+    <p>הצילו חיים — בהישג ידכם.</p>
+    <img src="/mnt/data/prodact.jpg" alt="מכשיר להצלת חיים" style="width:100%; max-width:400px; margin-top:20px;">
+  </div>
+</div>
+
+
 <script>
+
+
+// פתיחת מודאל מידע נוסף
+const userInfoBtn = document.getElementById('user-info-btn');
+const userInfoModal = document.getElementById('user-info-modal');
+const closeUserInfoModal = document.getElementById('close-user-info-modal');
+
+userInfoBtn.addEventListener('click', () => {
+  userInfoModal.style.display = 'block';
+});
+
+closeUserInfoModal.addEventListener('click', () => {
+  userInfoModal.style.display = 'none';
+});
+
+// סגירה אם לוחצים מחוץ לחלון
+window.addEventListener('click', (event) => {
+  if (event.target === userInfoModal) {
+    userInfoModal.style.display = 'none';
+  }
+});
+
+
   // פתיחה וסגירה של המודאל
   const modal = document.getElementById("product-modal");
   const openBtn = document.getElementById("about-product-btn");
@@ -294,6 +376,70 @@ window.onclick = function (event) {
 
 
 
+</script>
+
+<script>
+  // פתיחה של מודאלים קיימים
+  document.getElementById('about-product-btn').onclick = function() {
+    document.getElementById('product-modal').style.display = 'block';
+  };
+  
+  document.getElementById('user-guide-btn').onclick = function() {
+    document.getElementById('user-guide-modal').style.display = 'block';
+  };
+
+  // סגירת מודאלים
+  document.getElementById('close-modal').onclick = function() {
+    document.getElementById('product-modal').style.display = 'none';
+  };
+  
+  document.getElementById('close-video-modal').onclick = function() {
+    document.getElementById('user-guide-modal').style.display = 'none';
+  };
+
+  // פתיחה של מודאל רכישה
+  document.querySelector('.buy-btn').onclick = function(e) {
+    e.preventDefault();
+    document.getElementById('purchase-modal').style.display = 'block';
+  };
+
+  // סגירת מודאל רכישה
+  document.getElementById('close-purchase-modal').onclick = function() {
+    document.getElementById('purchase-modal').style.display = 'none';
+  };
+
+  // לחיצה על אישור רכישה
+  document.getElementById('confirm-purchase-btn').onclick = function() {
+    alert('תודה על רכישתך! ניצור איתך קשר להשלמת ההזמנה.');
+    document.getElementById('purchase-modal').style.display = 'none';
+  };
+
+  // סגירה של המודאלים בלחיצה מחוץ לחלון
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(function(modal) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+  };
+</script>
+
+<script>
+  document.getElementById('learn-more-btn').onclick = function() {
+    document.getElementById('product-modal').style.display = 'block';
+  };
+
+  document.getElementById('close-modal').onclick = function() {
+    document.getElementById('product-modal').style.display = 'none';
+  };
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('product-modal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
 </script>
 
 </body>
